@@ -6,7 +6,11 @@ RUN \
   && \
   apt-get update && \
   DEBIAN_FRONTEND=noninteractive \
-    apt-get install -y --no-install-recommends rsyslog \
+    apt-get install -y --no-install-recommends \
+      rsyslog \
+      rsyslog-elasticsearch \
+      rsyslog-imptcp \
+      rsyslog-relp \
   && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
