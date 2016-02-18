@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM pataquets/ubuntu:trusty
 
 RUN \
   apt-key adv --keyserver hkp://hkps.pool.sks-keyservers.net --recv-keys 0F6DD8135234BF2B && \
@@ -9,6 +9,7 @@ RUN \
     apt-get install -y --no-install-recommends \
       rsyslog \
       rsyslog-elasticsearch \
+      rsyslog-gnutls \
       rsyslog-imptcp \
       rsyslog-relp \
   && \
