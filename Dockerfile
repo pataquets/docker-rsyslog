@@ -5,12 +5,13 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN \
   apt-get update && \
   apt-get install -y --no-install-recommends \
+    ca-certificates \
     gnupg \
   && \
-  apt-key adv --keyserver hkp://hkps.pool.sks-keyservers.net --recv-keys 0F6DD8135234BF2B && \
+  apt-key adv --keyserver hkps://keyserver.ubuntu.com --recv-keys 0F6DD8135234BF2B && \
   . /etc/lsb-release && \
-  echo "deb http://ppa.launchpad.net/adiscon/v8-stable/ubuntu ${DISTRIB_CODENAME} main" | \
-    tee /etc/apt/sources.list.d/rsyslog.list \
+  echo "deb http://ppa.launchpad.net/adiscon/v8-stable/ubuntu ${DISTRIB_CODENAME} main" \
+    | tee /etc/apt/sources.list.d/rsyslog.list \
   && \
   apt-get purge -y --autoremove \
     gnupg \
